@@ -4,13 +4,13 @@ Advanced Encryption Standard (AES) is a specification for the encryption of elec
 
 AES Procedure:
 
-Encryption(Order)
+# Encryption(Order)
 1. Substitute Bytes
 2. Shift Rows
 3. Mix Columns
 4. Add Round Key
    
-Decryption(Order)
+# Decryption(Order)
 1. Shift Rows
 2. Substitute Bytes
 3. Add Round Key
