@@ -143,22 +143,22 @@ void substituteBytes(unsigned char Cipher_Text[4][4])
 void shiftRows(unsigned char Cipher_Text[4][4])
 {
     //------------Shifting in 2nd Row-------------
-    int temp = Cipher_Text[0][1];
-    Cipher_Text[0][1] = Cipher_Text[1][1];
-    Cipher_Text[1][1] = Cipher_Text[2][1];
-    Cipher_Text[2][1] = Cipher_Text[3][1];
-    Cipher_Text[3][1] = temp;
+    int temp = Cipher_Text[1][0];
+    Cipher_Text[1][0] = Cipher_Text[1][1];
+    Cipher_Text[1][1] = Cipher_Text[1][2];
+    Cipher_Text[1][2] = Cipher_Text[1][3];
+    Cipher_Text[1][3] = temp;
 
     //------------Shifting in 3rd Row------------
-    swap(Cipher_Text[0][2], Cipher_Text[2][2]);
-    swap(Cipher_Text[1][2], Cipher_Text[3][2]);
+    swap(Cipher_Text[2][0], Cipher_Text[2][2]);
+    swap(Cipher_Text[2][1], Cipher_Text[2][3]);
 
     //------------Shifting in 4th Row------------
     temp = Cipher_Text[3][3];
-    Cipher_Text[3][3] = Cipher_Text[2][3];
-    Cipher_Text[2][3] = Cipher_Text[1][3];
-    Cipher_Text[1][3] = Cipher_Text[0][3];
-    Cipher_Text[0][3] = temp;
+    Cipher_Text[3][3] = Cipher_Text[3][2];
+    Cipher_Text[3][2] = Cipher_Text[3][1];
+    Cipher_Text[3][1] = Cipher_Text[3][0];
+    Cipher_Text[3][0] = temp;
 }
 // Galois Multiplication for column mixing
 unsigned char galois_multiplication(unsigned char a, unsigned char b)
@@ -217,21 +217,21 @@ void invSubstituteBytes(unsigned char Cipher_Text[4][4])
 void InvShiftRows(unsigned char Cipher_Text[4][4])
 {
     //------------Shifting in 2nd Row------------
-    unsigned char temp = Cipher_Text[3][1];
-    Cipher_Text[3][1] = Cipher_Text[2][1];
-    Cipher_Text[2][1] = Cipher_Text[1][1];
-    Cipher_Text[1][1] = Cipher_Text[0][1];
-    Cipher_Text[0][1] = temp;
+    unsigned char temp = Cipher_Text[1][3];
+    Cipher_Text[1][3] = Cipher_Text[1][2];
+    Cipher_Text[1][2] = Cipher_Text[1][1];
+    Cipher_Text[1][1] = Cipher_Text[1][0];
+    Cipher_Text[1][0] = temp;
 
     //------------Shifting in 3rd Row------------
-    swap(Cipher_Text[0][2], Cipher_Text[2][2]);
-    swap(Cipher_Text[1][2], Cipher_Text[3][2]);
+    swap(Cipher_Text[2][0], Cipher_Text[2][2]);
+    swap(Cipher_Text[2][1], Cipher_Text[2][3]);
 
     //------------Shifting in 4th Row-------------
-    temp = Cipher_Text[0][3];
-    Cipher_Text[0][3] = Cipher_Text[1][3];
-    Cipher_Text[1][3] = Cipher_Text[2][3];
-    Cipher_Text[2][3] = Cipher_Text[3][3];
+    temp = Cipher_Text[3][0];
+    Cipher_Text[3][0] = Cipher_Text[3][1];
+    Cipher_Text[3][1] = Cipher_Text[3][2];
+    Cipher_Text[3][2] = Cipher_Text[3][3];
     Cipher_Text[3][3] = temp;
 }
 // Inverse Mixing Columns
